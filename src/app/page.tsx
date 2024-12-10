@@ -1,101 +1,517 @@
+'use client'
+
 import Image from "next/image";
+import Link from "next/link";
+import { FiShoppingCart } from "react-icons/fi";
+import { FaRegUserCircle } from "react-icons/fa";
+import { FaStar } from "react-icons/fa";
+
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div>
+      {/* Fixed Top Black Banner */}
+      <div className="w-full h-[38px] bg-black fixed top-0 left-0 z-50">
+        <p className="text-center pt-[0.5rem] text-white">
+          Sign up and get 20% off to your first order.
+          <Link href={"#"} className="font-[500]">
+            Sign Up Now
+          </Link>
+        </p>
+      </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* Fixed Navbar */}
+      <div className="w-[70%] h-[41px] mx-auto mt-6 flex items-center justify-between fixed top-[38px] left-0 right-0 z-50">
+        <div className="font-extrabold text-[32px]">SHOP.CO</div>
+        <div className="flex justify-center items-center gap-[32px]">
+          <Link href={"#"}>Shop</Link>
+          <Link href={"#"}>On Sale</Link>
+          <Link href={"#"}>New Arrivals</Link>
+          <Link href={"#"}>Brand</Link>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+        <div>
+          <input
+            className="h-[48px] bg-[#F0F0F0] rounded-3xl w-[500px] px-7"
+            type="text"
+            placeholder="Search for Products"
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        </div>
+        <div className="flex items-center justify-between gap-[14px]">
+          <FiShoppingCart className="w-[24px] h-[24px]" />
+          <FaRegUserCircle className="w-[24px] h-[24px]" />
+        </div>
+      </div>
+
+      {/* Hero Section */}
+      <div className="w-full bg-green-200 mt-[140px] h-[663px] bg-[url('/hero.png')] bg-cover bg-center pt-24">
+        <div className="w-[85%] mx-auto flex justify-between">
+          <div>
+            <h1 className="font-extrabold text-[64px] w-[577px] leading-[64px]">
+              FIND CLOTHES THAT MATCHES YOUR STYLE
+            </h1>
+
+            <div className="flex justify-between items-center w-[740px] ">
+              <p className=" w-[560px] opacity-[60%] mt-6 text-[16px]">
+                Browse through our diverse range of meticulously crafted
+                garments, designed to bring out your individuality and cater to
+                your sense of style.
+              </p>
+
+              <Image
+                src={"/star2.png"}
+                alt="star"
+                height={400}
+                width={400}
+                className="w-[56px] h-[56px]"
+              ></Image>
+            </div>
+
+            <button className="mt-6 w-[200px] h-[52px] bg-black rounded-full text-white font-bold flex items-center justify-center">
+              Shop Now
+            </button>
+          </div>
+
+          <div>
+            <Image
+              src={"/star1.png"}
+              alt="star1"
+              width={400}
+              height={400}
+              className="w-[104px] h-[104px]"
+            ></Image>
+          </div>
+        </div>
+      </div>
+
+      {/* Brands Logo */}
+      <div className="h-[122px] bg-black flex items-center justify-center">
+        <div className="flex items-center justify-between w-[85%] mx-auto">
           <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+            src={"/Brand Logo/gucci-logo-1 1.png"}
+            alt="logo"
+            height={400}
+            width={400}
+            className="w-[156px] h-[32.29px]"
+          ></Image>
           <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+            src={"/Brand Logo/prada-logo-1 1.png"}
+            alt="logo"
+            height={400}
+            width={400}
+            className="w-[194px] h-[31.2px]"
+          ></Image>
+          <Image
+            src={"/Brand Logo/Vector (2).png"}
+            alt="logo"
+            height={400}
+            width={400}
+            className="w-[166.48px] h-[31.16px]"
+          ></Image>
+          <Image
+            src={"/Brand Logo/Vector.png"}
+            alt="logo"
+            height={400}
+            width={400}
+            className="w-[206.79px] h-[33.35px]"
+          ></Image>
+          <Image
+            src={"/Brand Logo/zara-logo-1 1.png"}
+            alt="logo"
+            height={400}
+            width={400}
+            className="w-[91px] h-[37.98px]"
+          ></Image>
+        </div>
+      </div>
+
+      {/* New Arrival Section */}
+      <div className="">
+        <div className="text-center">
+          <h1 className="font-extrabold text-[48px] mt-16">NEW ARRIVALS</h1>
+        </div>
+
+        <div className="w-[85%] mx-auto mt-12 flex items-center justify-between ">
+          <div className="">
+            <Image
+              className="rounded-2xl w-[280px] h-[298px]"
+              src={"/New Arrivals/1.png"}
+              alt="bag image"
+              width={400}
+              height={400}
+            />
+            <p className="mt-3  font-semibold">T-SHIRT WITH TAPE DETAILS</p>
+            <div className="flex  text-[#FFC633] gap-[5.31px] mt-3">
+              <FaStar className=" w-[18.49px] h-[18.49px]" />
+              <FaStar className=" w-[18.49px] h-[18.49px]" />
+              <FaStar className=" w-[18.49px] h-[18.49px]" />
+              <FaStar className=" w-[18.49px] h-[18.49px]" />
+              <FaStar className=" w-[18.49px] h-[18.49px]" />
+
+              <h3 className="text-gray-400 bg-white">(65)</h3>
+            </div>
+            <div className="flex gap-4  bg-white">
+              <p className="text-black font-semibold bg-white text-[24px]">
+                $960
+              </p>
+              <p className="text-black opacity-[40%] font-semibold bg-white text-[24px]">
+                $960
+              </p>
+            </div>
+              
+          </div>
+
+          <div className="">
+            <Image
+              className="rounded-2xl w-[280px] h-[298px]"
+              src={"/New Arrivals/2.png"}
+              alt="bag image"
+              width={400}
+              height={400}
+            />
+            <p className="mt-3  font-semibold">T-SHIRT WITH TAPE DETAILS</p>
+            <div className="flex  text-[#FFC633] gap-[5.31px] mt-3">
+              <FaStar className=" w-[18.49px] h-[18.49px]" />
+              <FaStar className=" w-[18.49px] h-[18.49px]" />
+              <FaStar className=" w-[18.49px] h-[18.49px]" />
+              <FaStar className=" w-[18.49px] h-[18.49px]" />
+              <FaStar className=" w-[18.49px] h-[18.49px]" />
+
+              <h3 className="text-gray-400 bg-white">(65)</h3>
+            </div>
+            <div className="flex gap-4  bg-white">
+              <p className="text-black font-semibold bg-white text-[24px]">
+                $960
+              </p>
+              <p className="text-black opacity-[40%] font-semibold bg-white text-[24px]">
+                $960
+              </p>
+            </div>
+                    
+          </div>
+
+          <div className="">
+            <Image
+              className="rounded-2xl w-[280px] h-[298px]"
+              src={"/New Arrivals/3.png"}
+              alt="bag image"
+              width={400}
+              height={400}
+            />
+            <p className="mt-3 font-semibold">T-SHIRT WITH TAPE DETAILS</p>
+            <div className="flex b text-[#FFC633] gap-[5.31px] mt-3">
+              <FaStar className=" w-[18.49px] h-[18.49px]" />
+              <FaStar className=" w-[18.49px] h-[18.49px]" />
+              <FaStar className=" w-[18.49px] h-[18.49px]" />
+              <FaStar className=" w-[18.49px] h-[18.49px]" />
+              <FaStar className=" w-[18.49px] h-[18.49px]" />
+
+              <h3 className="text-gray-400 bg-white">(65)</h3>
+            </div>
+            <div className="flex gap-4  ">
+              <p className="text-black font-semibold  text-[24px]">$960</p>
+              <p className="text-black opacity-[40%] font-semibold b text-[24px]">
+                $960
+              </p>
+            </div>
+                    
+          </div>
+
+          <div className="">
+            <Image
+              className="rounded-2xl w-[280px] h-[298px] "
+              src={"/New Arrivals/4.png"}
+              alt="bag image"
+              width={400}
+              height={400}
+            />
+            <p className="mt-3  font-semibold">T-SHIRT WITH TAPE DETAILS</p>
+            <div className="flex  text-[#FFC633] gap-[5.31px] mt-3">
+              <FaStar className=" w-[18.49px] h-[18.49px]" />
+              <FaStar className=" w-[18.49px] h-[18.49px]" />
+              <FaStar className=" w-[18.49px] h-[18.49px]" />
+              <FaStar className=" w-[18.49px] h-[18.49px]" />
+              <FaStar className=" w-[18.49px] h-[18.49px]" />
+
+              <h3 className="text-gray-400 ">(65)</h3>
+            </div>
+            <div className="flex gap-4 ">
+              <p className="text-black font-semibold text-[24px]">$960</p>
+              <p className="text-black opacity-[40%] font-semibold text-[24px]">
+                $960
+              </p>
+            </div>
+                    
+          </div>
+        </div>
+
+        <div className="flex items-center justify-center mt-12">
+          <button className="w-[210px] h-[52px] text-[16px] text-black rounded-full font-bold flex items-center justify-center border-[2px] border-gray-200">
+            View All
+          </button>
+        </div>
+
+        <div className="w-[85%] h-[2px] bg-gray-200 mt-16 mb-10 mx-auto"></div>
+      </div>
+
+      {/* Top Selling Section */}
+      <div className="">
+        <div className="text-center">
+          <h1 className="font-extrabold text-[48px] mt-16">TOP SELLING</h1>
+        </div>
+
+        <div className="w-[85%] mx-auto mt-12 flex items-center justify-between ">
+          <div className="">
+            <Image
+              className="rounded-2xl w-[280px] h-[298px]"
+              src={"/New Arrivals/1.png"}
+              alt="bag image"
+              width={400}
+              height={400}
+            />
+            <p className="mt-3  font-semibold">T-SHIRT WITH TAPE DETAILS</p>
+            <div className="flex  text-[#FFC633] gap-[5.31px] mt-3">
+              <FaStar className=" w-[18.49px] h-[18.49px]" />
+              <FaStar className=" w-[18.49px] h-[18.49px]" />
+              <FaStar className=" w-[18.49px] h-[18.49px]" />
+              <FaStar className=" w-[18.49px] h-[18.49px]" />
+              <FaStar className=" w-[18.49px] h-[18.49px]" />
+
+              <h3 className="text-gray-400 bg-white">(65)</h3>
+            </div>
+            <div className="flex gap-4  bg-white">
+              <p className="text-black font-semibold bg-white text-[24px]">
+                $960
+              </p>
+              <p className="text-black opacity-[40%] font-semibold bg-white text-[24px]">
+                $960
+              </p>
+            </div>
+              
+          </div>
+
+          <div className="">
+            <Image
+              className="rounded-2xl w-[280px] h-[298px]"
+              src={"/New Arrivals/2.png"}
+              alt="bag image"
+              width={400}
+              height={400}
+            />
+            <p className="mt-3  font-semibold">T-SHIRT WITH TAPE DETAILS</p>
+            <div className="flex  text-[#FFC633] gap-[5.31px] mt-3">
+              <FaStar className=" w-[18.49px] h-[18.49px]" />
+              <FaStar className=" w-[18.49px] h-[18.49px]" />
+              <FaStar className=" w-[18.49px] h-[18.49px]" />
+              <FaStar className=" w-[18.49px] h-[18.49px]" />
+              <FaStar className=" w-[18.49px] h-[18.49px]" />
+
+              <h3 className="text-gray-400 bg-white">(65)</h3>
+            </div>
+            <div className="flex gap-4  bg-white">
+              <p className="text-black font-semibold bg-white text-[24px]">
+                $960
+              </p>
+              <p className="text-black opacity-[40%] font-semibold bg-white text-[24px]">
+                $960
+              </p>
+            </div>
+                    
+          </div>
+
+          <div className="">
+            <Image
+              className="rounded-2xl w-[280px] h-[298px]"
+              src={"/New Arrivals/3.png"}
+              alt="bag image"
+              width={400}
+              height={400}
+            />
+            <p className="mt-3 font-semibold">T-SHIRT WITH TAPE DETAILS</p>
+            <div className="flex b text-[#FFC633] gap-[5.31px] mt-3">
+              <FaStar className=" w-[18.49px] h-[18.49px]" />
+              <FaStar className=" w-[18.49px] h-[18.49px]" />
+              <FaStar className=" w-[18.49px] h-[18.49px]" />
+              <FaStar className=" w-[18.49px] h-[18.49px]" />
+              <FaStar className=" w-[18.49px] h-[18.49px]" />
+
+              <h3 className="text-gray-400 bg-white">(65)</h3>
+            </div>
+            <div className="flex gap-4  ">
+              <p className="text-black font-semibold  text-[24px]">$960</p>
+              <p className="text-black opacity-[40%] font-semibold b text-[24px]">
+                $960
+              </p>
+            </div>
+                    
+          </div>
+
+          <div className="">
+            <Image
+              className="rounded-2xl w-[280px] h-[298px] "
+              src={"/New Arrivals/4.png"}
+              alt="bag image"
+              width={400}
+              height={400}
+            />
+            <p className="mt-3  font-semibold">T-SHIRT WITH TAPE DETAILS</p>
+            <div className="flex  text-[#FFC633] gap-[5.31px] mt-3">
+              <FaStar className=" w-[18.49px] h-[18.49px]" />
+              <FaStar className=" w-[18.49px] h-[18.49px]" />
+              <FaStar className=" w-[18.49px] h-[18.49px]" />
+              <FaStar className=" w-[18.49px] h-[18.49px]" />
+              <FaStar className=" w-[18.49px] h-[18.49px]" />
+
+              <h3 className="text-gray-400 ">(65)</h3>
+            </div>
+            <div className="flex gap-4 ">
+              <p className="text-black font-semibold text-[24px]">$960</p>
+              <p className="text-black opacity-[40%] font-semibold text-[24px]">
+                $960
+              </p>
+            </div>
+                    
+          </div>
+        </div>
+
+        <div className="flex items-center justify-center mt-12">
+          <button className="w-[210px] h-[52px] text-[16px] text-black rounded-full font-bold flex items-center justify-center border-[2px] border-gray-200">
+            View All
+          </button>
+        </div>
+      </div>
+
+      {/* Dress style section */}
+      <div className="w-[85%] h-[866px] bg-[#F0F0F0] mx-auto rounded-3xl mt-20">
+        <div className="text-center pt-12">
+          <h1 className="font-extrabold text-[48px] mb-14">
+            BROWSE BY DRESS STYLE
+          </h1>
+        </div>
+
+        <div className="w-full flex items-center justify-center mx-auto gap-14 ">
+          <div className="w-[407px] h-[289px] bg-[url('/a.png')] bg-cover bg-center rounded-xl"></div>
+
+          <div className="w-[684px]  h-[289px] bg-[url('/b.png')] bg-cover bg-center rounded-xl "></div>
+        </div>
+
+        <div className="w-[90%] flex items-center justify-center mx-auto gap-14 mt-8">
+          <div className="w-[684px] h-[289px] bg-[url('/c.png')] bg-cover bg-center rounded-xl "></div>
+
+          <div className="w-[407px] h-[289px] bg-[url('/d.png')] bg-cover bg-center rounded-xl"></div>
+        </div>
+      </div>
+
+      {/* Reviews Section */}
+      <div className="w-[85%] mx-auto mt-12">
+        <div className="pt-8">
+          <h1 className="font-extrabold text-[48px] mb-14">
+            OUR HAPPY CUSTOMERS
+          </h1>
+        </div>
+
+        <div className="flex items-center justify-between">
+          <div className="h-[240px] w-[400px] rounded-2xl px-10 py-6 border-[1.5px] border-gray-200">
+            <div className="flex items-center text-[#FFC633] gap-[5.31px]">
+              <FaStar className=" w-[18.49px] h-[18.49px]" />
+              <FaStar className=" w-[18.49px] h-[18.49px]" />
+              <FaStar className=" w-[18.49px] h-[18.49px]" />
+              <FaStar className=" w-[18.49px] h-[18.49px]" />
+              <FaStar className=" w-[18.49px] h-[18.49px]" />
+            </div>
+
+            <div className="flex items-center gap-2 mt-2">
+              <h1 className=" text-[20px] font-semibold">Sarah M.</h1>
+              <Image
+                src={"/tick.png"}
+                alt=""
+                height={400}
+                width={400}
+                className="w-[19.5px] h-[19.5px]"
+              ></Image>
+            </div>
+            <p className="w-[300px] text-[16px] mt-2">
+              "I'm blown away by the quality and style of the clothes I received
+              from Shop.co. From casual wear to elegant dresses, every piece
+              I've bought has exceeded my expectations.”
+            </p>
+          </div>
+
+          <div className="h-[240px] w-[400px] rounded-2xl px-10 py-6 border-[1.5px] border-gray-200">
+            <div className="flex items-center text-[#FFC633] gap-[5.31px]">
+              <FaStar className=" w-[18.49px] h-[18.49px]" />
+              <FaStar className=" w-[18.49px] h-[18.49px]" />
+              <FaStar className=" w-[18.49px] h-[18.49px]" />
+              <FaStar className=" w-[18.49px] h-[18.49px]" />
+              <FaStar className=" w-[18.49px] h-[18.49px]" />
+            </div>
+
+            <div className="flex items-center gap-2 mt-2">
+              <h1 className=" text-[20px] font-semibold">Sarah M.</h1>
+              <Image
+                src={"/tick.png"}
+                alt=""
+                height={400}
+                width={400}
+                className="w-[19.5px] h-[19.5px]"
+              ></Image>
+            </div>
+            <p className="w-[300px] text-[16px] mt-2">
+              "I'm blown away by the quality and style of the clothes I received
+              from Shop.co. From casual wear to elegant dresses, every piece
+              I've bought has exceeded my expectations.”
+            </p>
+          </div>
+
+          <div className="h-[240px] w-[400px] rounded-2xl px-10 py-6 border-[1.5px] border-gray-200">
+            <div className="flex items-center text-[#FFC633] gap-[5.31px]">
+              <FaStar className=" w-[18.49px] h-[18.49px]" />
+              <FaStar className=" w-[18.49px] h-[18.49px]" />
+              <FaStar className=" w-[18.49px] h-[18.49px]" />
+              <FaStar className=" w-[18.49px] h-[18.49px]" />
+              <FaStar className=" w-[18.49px] h-[18.49px]" />
+            </div>
+
+            <div className="flex items-center gap-2 mt-2">
+              <h1 className=" text-[20px] font-semibold">Sarah M.</h1>
+              <Image
+                src={"/tick.png"}
+                alt=""
+                height={400}
+                width={400}
+                className="w-[19.5px] h-[19.5px]"
+              ></Image>
+            </div>
+            <p className="w-[300px] text-[16px] mt-2">
+              "I'm blown away by the quality and style of the clothes I received
+              from Shop.co. From casual wear to elegant dresses, every piece
+              I've bought has exceeded my expectations.”
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Pre-Footer box */}
+      <div className="w-[85%] h-[180px] bg-black mx-auto rounded-3xl mt-8 translate-y-1/2 transform flex items-center justify-center">
+        <div className="w-[90%] flex items-center justify-between mx-auto ">
+          <div><h1 className="font-extrabold text-white text-[40px] w-[577px] ">
+            STAY UPTO DATE ABOUT OUR LATEST OFFERS
+          </h1>
+          </div>
+
+          <div className="p-3">
+          <input type="emai" className="w-[400px] h-[48px] rounded-full" /><br />
+
+          <button className="mt-3 w-[400px] h-[48px] bg-[#FFFFFF] text-[16px] rounded-full ">Subscribe to Newsletter </button>
+
+        </div>
+
+        </div>
+
+        
+      </div>
+
+      {/* Footer Section */}
+      <div className="w-full h-[499px] bg-[#F0F0F0] z-10"></div>
     </div>
   );
 }
